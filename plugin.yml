@@ -1,0 +1,13 @@
+name: SilverUtil
+main: io.github.Alligrater.SilverUtil
+version: 1.0
+commands:
+  suench: 
+    description: Add an enchant to your item
+    usage: /suench
+  suname: 
+    description: Change your item name
+    usage: /suname
+  sulore: 
+    description: Set your item lore
+    usage: /sulore

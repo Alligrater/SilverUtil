@@ -15,26 +15,36 @@ public class SetName implements CommandExecutor{
 	public boolean onCommand(CommandSender sender, Command arg1, String arg2, String[] arg3) {
 		
 		if(!(sender instanceof Player) || !sender.hasPermission("silverutil.setname")) {
-			sender.sendMessage("ÄãÄãÄãÄãÏë¸ÉÂï£¡");
+			sender.sendMessage("¡ì4No Permission");
 			return false;
 		}
 		else {
 			Player player = (Player) sender;
-			if(player.getInventory().getItemInMainHand() != null && (arg3.length == 1)) {
-				String rename = arg3[0];
+			if(player.getInventory().getItemInMainHand() != null) {
+				String rename = concatArray(arg3);
 				ItemStack items = player.getInventory().getItemInMainHand();
-				rename.replaceAll("&", "¡ì");
-				rename.replaceAll("¡ì¡ì", "&");
+				rename = rename.replaceAll("&", "¡ì");
+				rename = rename.replaceAll("¡ì¡ì", "&");
 				ItemMeta remeta = player.getInventory().getItemInMainHand().getItemMeta();
 				remeta.setDisplayName(rename);
 				items.setItemMeta(remeta);
+				sender.sendMessage("¡ìbRenamed!");
 				return true;
 			}
 			else {
-				sender.sendMessage("ÄãÄãÄãÄãÏë¸ÉÂï£¡");
+				sender.sendMessage("¡ì4No Item In Hand");
 				return false;
 			}
 		}
+	}
+	
+	public String concatArray(String[] arg3) {
+		String out = "";
+		for (int i = 0; i < arg3.length; i++) {
+			out = out+arg3[i] + " ";
+		}
+		
+		return out;
 	}
 
 }

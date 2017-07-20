@@ -6,7 +6,9 @@ public class SilverUtil extends JavaPlugin{
 	
 	@Override
 	public void onEnable() {
-		this.getCommand("setname").setExecutor(new SetName());
+		this.getCommand("suname").setExecutor(new SetName());
+		this.getCommand("sulore").setExecutor(new SetLore());
+		this.getCommand("suench").setExecutor(new SetEnchant());
 	}
 	
 	@Override
