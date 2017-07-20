@@ -9,6 +9,7 @@ public class SilverUtil extends JavaPlugin{
 		this.getCommand("suname").setExecutor(new SetName());
 		this.getCommand("sulore").setExecutor(new SetLore());
 		this.getCommand("suench").setExecutor(new SetEnchant());
+		getServer().getPluginManager().registerEvents(new MentionListener(), this);
 	}
 	
 	@Override

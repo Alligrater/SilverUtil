@@ -4,10 +4,10 @@ version: 1.0
 commands:
   suench: 
     description: Add an enchant to your item
-    usage: /suench
+    usage: /suench [add/remove/list]
   suname: 
     description: Change your item name
     usage: /suname
   sulore: 
     description: Set your item lore
-    usage: /sulore
+    usage: /sulore [add/remove/set]
