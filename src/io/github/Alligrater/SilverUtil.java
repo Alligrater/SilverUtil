@@ -11,7 +11,9 @@ public class SilverUtil extends JavaPlugin{
 		this.getCommand("suench").setExecutor(new SetEnchant());
 		this.getCommand("bling").setExecutor(new PingCommand());
 		this.getCommand("spam").setExecutor(new SpamCommand());
+		this.getCommand("mute").setExecutor(new MuteChat());
 		getServer().getPluginManager().registerEvents(new MentionListener(), this);
+		getServer().getPluginManager().registerEvents(new ChatBling(), this);
 	}
 	
 	@Override

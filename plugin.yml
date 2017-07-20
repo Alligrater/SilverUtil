@@ -17,3 +17,6 @@ commands:
   spam: 
     description: Spam on the screen
     usage: /spam [Msg]
+  mute: 
+    description: Mute chat sound fx
+    usage: /mute
