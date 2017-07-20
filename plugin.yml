@@ -20,3 +20,6 @@ commands:
   mute: 
     description: Mute chat sound fx
     usage: /mute
+  gift: 
+    description: Give your friend a gift
+    usage: /gift [Playername]]
