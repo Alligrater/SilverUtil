@@ -17,7 +17,7 @@ public class ChatBling implements Listener{
 		for(Object p:online) {
 			Player player = (Player)p;
 			if (!player.getDisplayName().contains("[MUTED]")){
-				player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, (float) 0.6, 1);
+				player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, (float) 0.6, (float) 1.0);
 			}
 		}
 	}
