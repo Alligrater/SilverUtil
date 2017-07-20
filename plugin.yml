@@ -7,7 +7,13 @@ commands:
     usage: /suench [add/remove/list]
   suname: 
     description: Change your item name
-    usage: /suname
+    usage: /suname [Itemname]
   sulore: 
     description: Set your item lore
     usage: /sulore [add/remove/set]
+  bling: 
+    description: Ping someone privately
+    usage: /bling [Playername]
+  spam: 
+    description: Spam on the screen
+    usage: /spam [Msg]
