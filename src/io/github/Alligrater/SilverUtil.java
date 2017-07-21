@@ -16,6 +16,8 @@ public class SilverUtil extends JavaPlugin{
 		getServer().getPluginManager().registerEvents(new MentionListener(), this);
 		getServer().getPluginManager().registerEvents(new ChatBling(), this);
 		getServer().getPluginManager().registerEvents(new JoinColor(), this);
+		getServer().getPluginManager().registerEvents(new AttackBlood(), this);
+		getServer().getPluginManager().registerEvents(new DeathDrop(), this);
 	}
 	
 	@Override

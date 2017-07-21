@@ -18,7 +18,7 @@ public class PingCommand implements CommandExecutor{
 				Player player = (Player)sender;
 				Player receiver = Bukkit.getPlayer(arg3[0]);
 				if (Bukkit.getPlayer(arg3[0]) != null) {
-					receiver.sendTitle(ChatColor.AQUA + player.getName(), ChatColor.AQUA + "提到了你");
+					receiver.sendTitle(ChatColor.AQUA + player.getName(), ChatColor.AQUA + "Bling了你");
 					receiver.playSound(receiver.getLocation(), Sound.ENTITY_PLAYER_LEVELUP , 10, 5);
 					sender.sendMessage(ChatColor.AQUA + "Bling Success!");
 				}
@@ -29,7 +29,7 @@ public class PingCommand implements CommandExecutor{
 			else {
 				Player receiver = Bukkit.getPlayer(arg3[0]);
 				if (Bukkit.getPlayer(arg3[0]) != null) {
-					receiver.sendTitle(ChatColor.AQUA + "控制台", ChatColor.AQUA + "提到了你");
+					receiver.sendTitle(ChatColor.AQUA + "控制台", ChatColor.AQUA + "Bling了你");
 					receiver.playSound(receiver.getLocation(), Sound.ENTITY_PLAYER_LEVELUP , 10, 5);
 					sender.sendMessage(ChatColor.AQUA + "Bling Success!");
 				}
@@ -39,7 +39,7 @@ public class PingCommand implements CommandExecutor{
 			}
 		}
 		else {
-			sender.sendMessage(ChatColor.DARK_RED + "You can't mention nobody!");
+			sender.sendMessage(ChatColor.DARK_RED + "You can't bling nobody!");
 			return false;
 		}
 
