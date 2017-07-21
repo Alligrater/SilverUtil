@@ -27,7 +27,7 @@ public class DeathDrop implements Listener{
 			
 			ItemStack deathdrop = new ItemStack(Material.GOLDEN_CARROT);
 			ItemMeta dmeta = deathdrop.getItemMeta();
-			dmeta.setDisplayName("¡ìe¡ìlGolden ¡ìa¡ìlKela");
+			dmeta.setDisplayName("¡ìe½ð ¡ìa¿ÀÀ¬");
 			List<String> lores = new ArrayList<String>();
 			lores.add("Make Farming Great Again");
 			deathdrop.addUnsafeEnchantment(Enchantment.LOOT_BONUS_BLOCKS, 5);

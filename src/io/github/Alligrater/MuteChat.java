@@ -14,11 +14,11 @@ public class MuteChat implements CommandExecutor{
 			Player player = (Player)sender;
 			if(player.getDisplayName().contains("[Muted]")) {
 				player.setDisplayName(player.getDisplayName().replaceAll("§7\\[Muted\\]", ""));
-				player.sendMessage("§aChat Now Unmuted.");
+				player.sendMessage("§a聊天声音已开启。");
 			}
 			else {
 				player.setDisplayName("§7[Muted]"+player.getDisplayName());
-				player.sendMessage("§cChat Now Muted.");
+				player.sendMessage("§c聊天声音已关闭。");
 			}
 
 		}

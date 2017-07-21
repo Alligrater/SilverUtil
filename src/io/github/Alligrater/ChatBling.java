@@ -16,7 +16,7 @@ public class ChatBling implements Listener{
 		Object[] online = Bukkit.getOnlinePlayers().toArray();
 		for(Object p:online) {
 			Player player = (Player)p;
-			if (!player.getDisplayName().contains("[MUTED]")){
+			if (!player.getDisplayName().contains("[Muted]")){
 				player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, (float) 0.6, (float) 1.0);
 			}
 		}

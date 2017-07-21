@@ -19,17 +19,19 @@ public class SpamCommand implements CommandExecutor{
 				Bukkit.broadcastMessage(ChatColor.GOLD + spammsg);
 				Bukkit.broadcastMessage(ChatColor.YELLOW + spammsg);
 				Bukkit.broadcastMessage(ChatColor.GREEN + spammsg);
+				Bukkit.broadcastMessage(ChatColor.DARK_GREEN + spammsg);
+				Bukkit.broadcastMessage(ChatColor.DARK_AQUA + spammsg);
 				Bukkit.broadcastMessage(ChatColor.AQUA + spammsg);
 				Bukkit.broadcastMessage(ChatColor.DARK_BLUE + spammsg);
 				Bukkit.broadcastMessage(ChatColor.DARK_PURPLE + spammsg);
 			}
 			else {
-				sender.sendMessage(ChatColor.DARK_RED + "You can't spam nothing!");
+				sender.sendMessage(ChatColor.DARK_RED + "你不能什么都不发！");
 				return false;
 			}
 		}
 		else {
-			sender.sendMessage(ChatColor.DARK_RED + "You are not allowed to do this!");
+			sender.sendMessage(ChatColor.DARK_RED + "你不能这样做！");
 		}
 		return true;
 	}

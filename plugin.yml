@@ -22,4 +22,11 @@ commands:
     usage: /mute
   gift: 
     description: Give your friend a gift
-    usage: /gift [Playername]]
+    usage: /gift [Playername]
+  loca: 
+    description: Show others your location
+    usage: /loca
+  viewonline: 
+    description: View all players online
+    usage: /viewonline
+ 

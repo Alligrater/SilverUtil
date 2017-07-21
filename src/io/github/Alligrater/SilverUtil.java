@@ -13,12 +13,15 @@ public class SilverUtil extends JavaPlugin{
 		this.getCommand("spam").setExecutor(new SpamCommand());
 		this.getCommand("mute").setExecutor(new MuteChat());
 		this.getCommand("gift").setExecutor(new CommandGift());
+		this.getCommand("loca").setExecutor(new CommandLoca());
+		this.getCommand("viewonline").setExecutor(new CommandOnline());
 		getServer().getPluginManager().registerEvents(new MentionListener(), this);
 		getServer().getPluginManager().registerEvents(new ChatBling(), this);
 		getServer().getPluginManager().registerEvents(new JoinColor(), this);
 		getServer().getPluginManager().registerEvents(new AttackBlood(), this);
 		getServer().getPluginManager().registerEvents(new DeathDrop(), this);
 	}
+	
 	
 	@Override
 	public void onDisable() {

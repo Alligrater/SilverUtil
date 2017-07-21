@@ -20,26 +20,45 @@ public class PingCommand implements CommandExecutor{
 				if (Bukkit.getPlayer(arg3[0]) != null) {
 					receiver.sendTitle(ChatColor.AQUA + player.getName(), ChatColor.AQUA + "Bling了你");
 					receiver.playSound(receiver.getLocation(), Sound.ENTITY_PLAYER_LEVELUP , 10, 5);
-					sender.sendMessage(ChatColor.AQUA + "Bling Success!");
+					sender.sendMessage(ChatColor.AQUA + "Bling成功发送！");
 				}
+				
+				else if(arg3[0].equals("all") && sender.hasPermission("silverutil.bling.all")) {
+					for (Player players: Bukkit.getOnlinePlayers()) {
+						players.sendTitle(ChatColor.AQUA + player.getName(), ChatColor.AQUA + "Bling了你");
+						players.playSound(players.getLocation(), Sound.ENTITY_PLAYER_LEVELUP , 10, 5);
+						sender.sendMessage(ChatColor.AQUA + "Bling成功发送！");
+					}
+				}
+				
 				else {
 					sender.sendMessage(ChatColor.DARK_RED + arg3[0] + ChatColor.DARK_RED + " is not online!");
 				}
 			}
 			else {
+
 				Player receiver = Bukkit.getPlayer(arg3[0]);
 				if (Bukkit.getPlayer(arg3[0]) != null) {
 					receiver.sendTitle(ChatColor.AQUA + "控制台", ChatColor.AQUA + "Bling了你");
 					receiver.playSound(receiver.getLocation(), Sound.ENTITY_PLAYER_LEVELUP , 10, 5);
 					sender.sendMessage(ChatColor.AQUA + "Bling Success!");
 				}
+				
+				else if(arg3[0].equals("all") && sender.hasPermission("silverutil.bling.all")) {
+					for (Player players: Bukkit.getOnlinePlayers()) {
+						players.sendTitle(ChatColor.AQUA + "控制台", ChatColor.AQUA + "Bling了你");
+						players.playSound(players.getLocation(), Sound.ENTITY_PLAYER_LEVELUP , 10, 5);
+						sender.sendMessage(ChatColor.AQUA + "Bling成功发送！");
+					}
+				}
+				
 				else {
-					sender.sendMessage(ChatColor.DARK_RED + arg3[0] + ChatColor.DARK_RED + " is not online!");
+					sender.sendMessage(ChatColor.DARK_RED + arg3[0] + ChatColor.DARK_RED + "当前不在线！");
 				}
 			}
 		}
 		else {
-			sender.sendMessage(ChatColor.DARK_RED + "You can't bling nobody!");
+			sender.sendMessage(ChatColor.DARK_RED + "你不能Bling空气！");
 			return false;
 		}
 

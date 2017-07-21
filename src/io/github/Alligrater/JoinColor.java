@@ -38,7 +38,7 @@ public class JoinColor implements Listener{
 				
 				if(world.getBlockAt(loca).getType() != Material.VINE && world.getBlockAt(loca).getType() != Material.LADDER && world.getBlockAt(loca).getType() != Material.AIR) {
 					player.teleport(loca.add(0, 1, 0));
-					player.sendMessage("§cYou have been teleported to prevent softlocking.");
+					player.sendMessage("§c为避免无法登陆，你已被传送。");
 					break;
 				}
 				

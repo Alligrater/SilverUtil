@@ -16,7 +16,7 @@ public class SetName implements CommandExecutor{
 		
 		if(!(sender instanceof Player) || !sender.hasPermission("silverutil.setname")) {
 			sender.sendMessage("¡ì4No Permission");
-			return false;
+			return true;
 		}
 		else {
 			Player player = (Player) sender;
@@ -33,7 +33,7 @@ public class SetName implements CommandExecutor{
 			}
 			else {
 				sender.sendMessage("¡ì4No Item In Hand");
-				return false;
+				return true;
 			}
 		}
 	}

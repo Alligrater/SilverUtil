@@ -30,6 +30,15 @@ public class MentionListener implements Listener{
 						msgpart = "°Ïb" + msgpart + "°Ïr";
 						msgs.set(index, msgpart);
 					}
+					else if (msgpart.substring(1).equals("all") && event.getPlayer().hasPermission("silverutil.bling.all")){
+						for(Player ponline:Bukkit.getOnlinePlayers()) {
+							ponline.sendTitle(ChatColor.AQUA + event.getPlayer().getName(), ChatColor.AQUA + "Ã·µΩ¡Àƒ„");
+							ponline.playSound(ponline.getLocation(), Sound.ENTITY_PLAYER_LEVELUP , 10, 5);
+							int index = msgs.indexOf(msgpart);
+							msgpart = "°Ïb" + msgpart + "°Ïr";
+							msgs.set(index, msgpart);
+						}
+					}
 					else {
 						int index = msgs.indexOf(msgpart);
 						msgpart = "°Ï7" + msgpart + "°Ïr";

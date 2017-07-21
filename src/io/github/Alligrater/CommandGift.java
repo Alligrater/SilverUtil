@@ -33,16 +33,16 @@ public class CommandGift implements CommandExecutor{
 				newlore.add("Received from " + player.getName());
 			}
 			
-			if(inhand != null && arg3.length == 1 && receiver != null) {
-				player.sendMessage("§bGift Successfully Sent!");
+			if(inhand != null && arg3.length == 1 && receiver != null && player.getWorld().equals(receiver.getWorld())) {
+				player.sendMessage("§b礼物已送出！");
 				player.getInventory().setItemInMainHand(null);
 				newmeta.setLore(newlore);
 				inhand.setItemMeta(newmeta);
 				receiver.getInventory().addItem(inhand);
-				receiver.sendMessage("§bYou received a gift from " + ChatColor.AQUA + player.getName() + ChatColor.AQUA + "!");
+				receiver.sendMessage("§b你收到了来自" + ChatColor.AQUA + player.getName() + ChatColor.AQUA + "的礼物!");
 			}
 			else {
-				player.sendMessage("§cFailed to send gift. Check parameters.");
+				player.sendMessage("§c参数有误，没能送出礼物。");
 				return false;
 			}
 		}
