@@ -33,7 +33,7 @@ public class CommandGift implements CommandExecutor{
 				newlore.add("Received from " + player.getName());
 			}
 			
-			if(inhand != null && arg3.length == 1 && receiver != null && player.getWorld().equals(receiver.getWorld())) {
+			if(inhand != null && arg3.length == 1 && receiver != null) {
 				player.sendMessage("¡ìbÀñÎïÒÑËÍ³ö£¡");
 				player.getInventory().setItemInMainHand(null);
 				newmeta.setLore(newlore);

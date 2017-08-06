@@ -14,11 +14,12 @@ public class JoinColor implements Listener{
 	@EventHandler
 	public void onChatPop(PlayerJoinEvent event) {
 		Player player = event.getPlayer();
+		
 		if(player.isOp()) {
-			player.setDisplayName("§c"+ player.getName() + "§r");
+			player.setPlayerListName("§c" + player.getName());
 		}
-		else {
-			player.setDisplayName("§2"+ player.getName() + "§r");
+		else if(player.hasPermission("SilverUtil.group.donor")) {
+			player.setPlayerListName("§b" + player.getName());
 		}
 		
 		//Prevents Flying Softlock
@@ -30,7 +31,7 @@ public class JoinColor implements Listener{
 		loca.setX(locaX);
 		loca.setZ(locaZ);
 		World world = player.getWorld();
-		if(world.getBlockAt(loca).getType() == Material.VINE || world.getBlockAt(loca).getType() == Material.LADDER) {
+		/*if(world.getBlockAt(loca).getType() == Material.VINE || world.getBlockAt(loca).getType() == Material.LADDER) {
 			
 			
 			for(int i = 0; i < 255; i++) {
@@ -44,5 +45,10 @@ public class JoinColor implements Listener{
 				
 			}
 			}
+			*/
+		if(!player.isOnGround()) {
+			player.teleport(world.getSpawnLocation());
+			player.sendMessage("§c为避免无法登陆，你已暂时被传送。");
+		}
 		}
 	}

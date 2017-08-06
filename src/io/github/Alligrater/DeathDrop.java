@@ -30,11 +30,11 @@ public class DeathDrop implements Listener{
 			dmeta.setDisplayName("¡ìe½ð ¡ìa¿ÀÀ¬");
 			List<String> lores = new ArrayList<String>();
 			lores.add("Make Farming Great Again");
-			deathdrop.addUnsafeEnchantment(Enchantment.LOOT_BONUS_BLOCKS, 5);
 			dmeta.setLore(lores);
 			deathdrop.setItemMeta(dmeta);
-			
+			deathdrop.addUnsafeEnchantment(Enchantment.LOOT_BONUS_BLOCKS, 10);
 			world.dropItem(loca, deathdrop);
 		}
+		
 	}
 }

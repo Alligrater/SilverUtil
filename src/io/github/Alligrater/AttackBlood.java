@@ -23,7 +23,7 @@ public class AttackBlood implements Listener{
 		Entity target = event.getEntity();
 		World world = target.getWorld();
 		Location loca = target.getLocation();
-		int damage = (int) Math.round(event.getDamage());
+		int damage = (int) Math.round(event.getFinalDamage());
 		int count = Math.round(damage*10/2);
 		loca = loca.add(0, 1, 0);
 		//world.playEffect(target.getLocation(), Effect.STEP_SOUND,152);

@@ -2,9 +2,6 @@ name: SilverUtil
 main: io.github.Alligrater.SilverUtil
 version: 1.0
 commands:
-  suench: 
-    description: Add an enchant to your item
-    usage: /suench [add/remove/list]
   suname: 
     description: Change your item name
     usage: /suname [Itemname]
@@ -29,4 +26,9 @@ commands:
   viewonline: 
     description: View all players online
     usage: /viewonline
- 
+  rtp: 
+    description: Teleport to a random spot
+    usage: /rtp
+  tellme: 
+    description: Tellme!
+    usage: /tellme

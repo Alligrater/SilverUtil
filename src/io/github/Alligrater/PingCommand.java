@@ -45,11 +45,13 @@ public class PingCommand implements CommandExecutor{
 				}
 				
 				else if(arg3[0].equals("all") && sender.hasPermission("silverutil.bling.all")) {
+					int i = 0;
 					for (Player players: Bukkit.getOnlinePlayers()) {
 						players.sendTitle(ChatColor.AQUA + "控制台", ChatColor.AQUA + "Bling了你");
 						players.playSound(players.getLocation(), Sound.ENTITY_PLAYER_LEVELUP , 10, 5);
-						sender.sendMessage(ChatColor.AQUA + "Bling成功发送！");
+						i++;
 					}
+					sender.sendMessage(ChatColor.AQUA + "Bling成功发送至" + i + "人！");
 				}
 				
 				else {
