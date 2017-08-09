@@ -92,7 +92,12 @@ public class SetLore implements CommandExecutor{
 	public String concatArray(String[] arg3, int start) {
 		String out = "";
 		for (int i = start; i < arg3.length; i++) {
-			out = out+arg3[i] + " ";
+			if(i == arg3.length - 1) {
+				out = out+arg3[i];
+			}
+			else {
+				out = out+arg3[i] + " ";
+			}
 		}
 		
 		return out;

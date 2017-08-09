@@ -1,7 +1,5 @@
 package io.github.Alligrater;
 
-import java.util.List;
-
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -32,6 +30,7 @@ public class SetName implements CommandExecutor{
 				return true;
 			}
 			else {
+				
 				sender.sendMessage("¡ì4No Item In Hand");
 				return true;
 			}
@@ -41,9 +40,13 @@ public class SetName implements CommandExecutor{
 	public String concatArray(String[] arg3) {
 		String out = "";
 		for (int i = 0; i < arg3.length; i++) {
-			out = out+arg3[i] + " ";
+			if(i == arg3.length - 1) {
+				out = out+arg3[i];
+			}
+			else {
+				out = out+arg3[i] + " ";
+			}
 		}
-		
 		return out;
 	}
 

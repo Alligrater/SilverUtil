@@ -1,6 +1,6 @@
 name: SilverUtil
 main: io.github.Alligrater.SilverUtil
-version: 1.0
+version: 1.2
 commands:
   suname: 
     description: Change your item name
@@ -14,9 +14,9 @@ commands:
   spam: 
     description: Spam on the screen
     usage: /spam [Msg]
-  mute: 
+  mutebling: 
     description: Mute chat sound fx
-    usage: /mute
+    usage: /mutebling
   gift: 
     description: Give your friend a gift
     usage: /gift [Playername]
@@ -28,7 +28,7 @@ commands:
     usage: /viewonline
   rtp: 
     description: Teleport to a random spot
-    usage: /rtp
-  tellme: 
-    description: Tellme!
-    usage: /tellme
+    usage: /rtp [Playername]
+  monk: 
+    description: Vow of poverty.
+    usage: /monk

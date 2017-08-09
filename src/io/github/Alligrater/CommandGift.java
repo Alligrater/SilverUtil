@@ -46,6 +46,24 @@ public class CommandGift implements CommandExecutor{
 				return false;
 			}
 		}
+		else if(sender instanceof Player && arg3.length == 2) {
+			if(arg3[1].equals("nl") || arg3[1].equals("nolore")) {
+				Player player = (Player)sender;
+				Player receiver = Bukkit.getPlayer(arg3[0]);
+				ItemStack inhand = player.getInventory().getItemInMainHand();
+				if(inhand != null && arg3.length == 2 && receiver != null) {
+					player.sendMessage("§b礼物已送出！");
+					player.getInventory().setItemInMainHand(null);
+					receiver.getInventory().addItem(inhand);
+					receiver.sendMessage("§b你收到了来自" + ChatColor.AQUA + player.getName() + ChatColor.AQUA + "的礼物!");
+				}
+				else {
+					player.sendMessage("§c参数有误，没能送出礼物。");
+					return false;
+				}
+			}
+
+		}
 		return true;
 	}
 	

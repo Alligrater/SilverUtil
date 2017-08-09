@@ -1,19 +1,14 @@
 package io.github.Alligrater;
 
-import org.bukkit.Effect;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Particle;
 import org.bukkit.World;
 import org.bukkit.entity.Entity;
-import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
-import org.bukkit.event.inventory.InventoryType;
-import org.bukkit.inventory.Inventory;
-import org.bukkit.inventory.InventoryView;
 import org.bukkit.material.MaterialData;
 
 
@@ -33,7 +28,8 @@ public class AttackBlood implements Listener{
 		else {
 			world.spawnParticle(Particle.BLOCK_CRACK, loca, count, 0.2,0.2,0.2,0.1,new MaterialData(Material.REDSTONE_BLOCK));
 		}
-
+		
 
 	}
+	
 }

@@ -1,8 +1,5 @@
 package io.github.Alligrater;
 
-import java.util.Collection;
-import java.util.List;
-
 import org.bukkit.Bukkit;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
@@ -16,7 +13,7 @@ public class ChatBling implements Listener{
 		Object[] online = Bukkit.getOnlinePlayers().toArray();
 		for(Object p:online) {
 			Player player = (Player)p;
-			if (!player.getDisplayName().contains("[Muted]")){
+			if (!MuteChat.muted.contains(player.getUniqueId())){
 				player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, (float) 0.6, (float) 1.0);
 			}
 		}

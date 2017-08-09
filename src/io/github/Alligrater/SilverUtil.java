@@ -6,15 +6,18 @@ public class SilverUtil extends JavaPlugin{
 	
 	@Override
 	public void onEnable() {
+		
+		
 		this.getCommand("suname").setExecutor(new SetName());
 		this.getCommand("sulore").setExecutor(new SetLore());
 		this.getCommand("spam").setExecutor(new SpamCommand());
 		this.getCommand("bling").setExecutor(new PingCommand());
-		this.getCommand("mute").setExecutor(new MuteChat());
+		this.getCommand("mutebling").setExecutor(new MuteChat());
 		this.getCommand("gift").setExecutor(new CommandGift());
 		this.getCommand("loca").setExecutor(new CommandLoca());
 		this.getCommand("viewonline").setExecutor(new CommandOnline());
 		this.getCommand("rtp").setExecutor(new RtpMe());
+		this.getCommand("monk").setExecutor(new VowofPoverty());
 		//this.getCommand("tellme").setExecutor(new TellMe());
 		getServer().getPluginManager().registerEvents(new ChatBling(), this);
 		getServer().getPluginManager().registerEvents(new JoinColor(), this);
@@ -26,6 +29,8 @@ public class SilverUtil extends JavaPlugin{
 		getServer().getPluginManager().registerEvents(new IgnoreWhitelist(), this);
 		getServer().getPluginManager().registerEvents(new UseKela(), this);
 		getServer().getPluginManager().registerEvents(new PathRunning(), this);
+		getServer().getPluginManager().registerEvents(new DieofVow(), this);
+		getServer().getPluginManager().registerEvents(new MentionListener(), this);
 		//getServer().getPluginManager().registerEvents(new DNDWeapon(), this);
 	}
 	

@@ -11,7 +11,6 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.player.PlayerItemConsumeEvent;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
@@ -19,7 +18,7 @@ public class UseKela implements Listener {
 	@EventHandler
 	public void onKelaUsed(BlockBreakEvent event) {
 		ItemStack item = event.getPlayer().getInventory().getItemInMainHand();
-		ItemMeta imeta = item.getItemMeta();
+		item.getItemMeta();
 		if(item.containsEnchantment(Enchantment.LOOT_BONUS_BLOCKS) && item.getEnchantmentLevel(Enchantment.LOOT_BONUS_BLOCKS) == 10 && item.getType() == Material.GOLDEN_CARROT) {
 			if(event.getPlayer().getGameMode() != GameMode.CREATIVE) {
 				if(item.getAmount() <= 1) {
@@ -37,7 +36,7 @@ public class UseKela implements Listener {
 	@EventHandler
 	public void onKelaEat(PlayerItemConsumeEvent event) {
 		ItemStack item = event.getPlayer().getInventory().getItemInMainHand();
-		ItemMeta imeta = item.getItemMeta();
+		item.getItemMeta();
 		Player player = event.getPlayer();
 		if(item.containsEnchantment(Enchantment.LOOT_BONUS_BLOCKS) && item.getEnchantmentLevel(Enchantment.LOOT_BONUS_BLOCKS) == 10 && item.getType() == Material.GOLDEN_CARROT) {
 			player.setFoodLevel(20);
@@ -69,22 +68,22 @@ public class UseKela implements Listener {
 				break;
 			case 4:
 				for(Player nearby : Bukkit.getOnlinePlayers()) {
-					if (nearby.getLocation().distance(player.getLocation()) < 15) {
-						nearby.setHealth(20);
-						nearby.setFoodLevel(20);
+					if(nearby.getWorld().equals(player.getWorld())) {
+						if (nearby.getLocation().distance(player.getLocation()) < 15) {
+							nearby.setHealth(20);
+							nearby.setFoodLevel(20);
+						}
 					}
-
 				}
 				Bukkit.broadcastMessage(ChatColor.GOLD + player.getName() + "§6吸了一口上好的金坷垃,§e周围全体回血！");
 				break;
 			}
-				
-			
 
-
-
-
-
+		}
+		
+		else if(item.containsEnchantment(Enchantment.DAMAGE_ALL) && item.getEnchantmentLevel(Enchantment.DAMAGE_ALL) == 10 && item.getType() == Material.BREAD) {
+			player.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 600, 0), true);
+			Bukkit.broadcastMessage(ChatColor.GOLD + player.getName() + "§6咬了一口法棍,§c力量短时间内提升了！");
 		}
 	}
 }

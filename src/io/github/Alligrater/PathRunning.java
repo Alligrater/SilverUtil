@@ -18,8 +18,8 @@ public class PathRunning implements Listener{
 		Location loca = event.getPlayer().getLocation().add(0, -0.2, 0);
 		World world = event.getPlayer().getWorld();
 		List<Material> under = new ArrayList<Material>();
-		for(int x = -1; x <= 1; x++) {
-			for(int z = -1; z <= 1; z++) {
+		for(double x = -0.5; x <= 0.5; x+=0.5) {
+			for(double z = -0.5; z <= 0.5; z+=0.5) {
 				under.add(world.getBlockAt(loca.add(x, 0, z)).getType());
 			}
 		}

@@ -15,12 +15,13 @@ public class CommandOnline implements CommandExecutor{
 		// TODO Auto-generated method stub
 		if(sender.hasPermission("silverutil.getonline")) {
 			for(Player player:Bukkit.getOnlinePlayers()) {
+				
 				Location loca = player.getLocation();
 				int locaX = loca.getBlockX();
 				int locaY = loca.getBlockY();
 				int locaZ = loca.getBlockZ();
 				String world = player.getWorld().getName();
-				String pname = player.getDisplayName();
+				String pname = JoinColor.updateDname(player);
 				sender.sendMessage(ChatColor.AQUA + pname + ChatColor.AQUA + " " + world + "@(" + locaX + ", " + locaY + ", " + locaZ + ")");
 			}
 			return true;

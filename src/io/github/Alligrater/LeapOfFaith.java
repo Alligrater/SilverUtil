@@ -6,7 +6,6 @@ import java.util.List;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
-import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -15,8 +14,6 @@ import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityDamageEvent.DamageCause;
 import org.bukkit.event.entity.PlayerDeathEvent;
-import org.bukkit.util.Vector;
-
 import net.md_5.bungee.api.ChatColor;
 
 public class LeapOfFaith implements Listener{
@@ -24,11 +21,17 @@ public class LeapOfFaith implements Listener{
 	public void onPlayerFall(EntityDamageEvent event) {
 		if(event.getEntityType() == EntityType.PLAYER) {
 			if(event.getCause() == DamageCause.FALL) {
-				int locaX = event.getEntity().getLocation().getBlockX();
-				int locaY = event.getEntity().getLocation().getBlockY() - 1;
-				int locaZ = event.getEntity().getLocation().getBlockZ();
+				Location loca = event.getEntity().getLocation();
+				loca = loca.add(0, -0.5, 0);
+				
+				List<Material> under = new ArrayList<Material>();
+				for(double x = -0.5; x <= 0.5; x+=0.5) {
+					for(double z = -0.5; z <= 0.5; z+=0.5) {
+						under.add((event.getEntity().getWorld().getBlockAt(loca.add(x, 0, z))).getType());
+					}
+				}
 
-				if(event.getEntity().getWorld().getBlockAt(locaX, locaY, locaZ).getType().equals(Material.HAY_BLOCK)) {
+				if(under.contains(Material.HAY_BLOCK)) {
 					if(event.getEntity().getFallDistance() > 12 && event.getFinalDamage() * 0.1 < ((Player)event.getEntity()).getHealth()) {
 						Bukkit.broadcastMessage(ChatColor.YELLOW + event.getEntity().getName() + "从" + Math.round(event.getEntity().getFallDistance()) +"格的高空中一跃而下，落到了草垛里活了下来！");
 					}
@@ -61,10 +64,14 @@ public class LeapOfFaith implements Listener{
 			Player target = (Player) event.getEntity();
 			Player ass = (Player) event.getDamager();
 			float tyaw = target.getEyeLocation().getYaw() + 360;
+			
+			
 			tyaw =  tyaw%360;
 			tyaw = (tyaw + 360) % 360;
 			if(tyaw >180)
 				tyaw -=360;
+			
+			
 
 			float ayaw = ass.getEyeLocation().getYaw() + 360;
 			ayaw =  ayaw%360;

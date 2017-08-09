@@ -16,10 +16,11 @@ public class RtpMe implements CommandExecutor{
 			Player player = Bukkit.getPlayer(arg3[0]);
 			if(player != null) {
 				double size = 15000;
-				int locaX = 0;
-				int locaZ = 0;
+				int locaX = (int) ((Math.random() - 0.5)*size*2);;
+				int locaZ = (int) ((Math.random() - 0.5)*size*2);;
 				int locaY = player.getWorld().getHighestBlockYAt(locaX, locaZ);
 				while(player.getWorld().getBlockAt(locaX, locaY - 1, locaZ).getType() == Material.WATER || player.getWorld().getBlockAt(locaX, locaY - 1, locaZ).getType() == Material.STATIONARY_WATER ||  player.getWorld().getBlockAt(locaX, locaY - 1, locaZ).getType() == Material.LAVA ||  player.getWorld().getBlockAt(locaX, locaY - 1, locaZ).getType() == Material.STATIONARY_LAVA) {
+					Bukkit.getLogger().info("[RtpMe]Attempting to teleport player to (" + locaX + "," + locaY + "," + locaZ + ") ... but failed. Retrying.");
 					locaX = (int) ((Math.random() - 0.5)*size*2);
 					locaZ = (int) ((Math.random() - 0.5)*size*2);
 					locaY = player.getWorld().getHighestBlockYAt(locaX, locaZ);
