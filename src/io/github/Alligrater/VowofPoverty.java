@@ -21,11 +21,15 @@ public class VowofPoverty implements CommandExecutor {
 			if (monk.contains(player.getUniqueId())) {
 				monk.remove(player.getUniqueId());
 				Bukkit.broadcastMessage(ChatColor.GOLD + ((Player) sender).getName() + "不再是Monk了！");
+				if (JoinColor.customtag.get(((Player) sender).getName()) != null && JoinColor.customtag.get(((Player) sender).getName()).equals("§6[Monk]")) {
+					JoinColor.customtag.remove(((Player) sender).getName());
+				}
 				player.setDisplayName(JoinColor.updateDname(player));
 			}
 			else {
 				monk.add(player.getUniqueId());
 				Bukkit.broadcastMessage(ChatColor.GOLD + ((Player) sender).getName() + "化身为Monk！");
+				JoinColor.customtag.put(((Player) sender).getName(), "§6[Monk]");
 				player.setDisplayName(JoinColor.updateDname(player));
 			}
 		}

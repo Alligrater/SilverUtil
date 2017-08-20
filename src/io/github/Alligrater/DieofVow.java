@@ -29,7 +29,16 @@ public class DieofVow implements Listener{
 			VowofPoverty.monk.remove(event.getEntity().getUniqueId());
 			deadmonk.remove(event.getEntity().getUniqueId());
 			Bukkit.broadcastMessage(ChatColor.GOLD + player.getName() + "不再是Monk了！");
+			if (JoinColor.customtag.get(player.getUniqueId()) != null && JoinColor.customtag.get(player.getUniqueId()).equals("§6[Monk]")) {
+				JoinColor.customtag.remove(player.getUniqueId());
+			}
 			player.setDisplayName(JoinColor.updateDname(player));
+		}
+		else {
+			if(UseKela.booksread.containsKey(event.getEntity().getName())) {
+				UseKela.booksread.remove(event.getEntity().getName());
+				event.getEntity().sendMessage("你啊，还是要学习一个……");
+			}
 		}
 	}
 	

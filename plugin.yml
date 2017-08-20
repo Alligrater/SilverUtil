@@ -1,6 +1,6 @@
 name: SilverUtil
 main: io.github.Alligrater.SilverUtil
-version: 1.2
+version: 2.3
 commands:
   suname: 
     description: Change your item name
@@ -13,7 +13,7 @@ commands:
     usage: /bling [Playername]
   spam: 
     description: Spam on the screen
-    usage: /spam [Msg]
+    usage: /spam [Message]
   mutebling: 
     description: Mute chat sound fx
     usage: /mutebling
@@ -32,3 +32,21 @@ commands:
   monk: 
     description: Vow of poverty.
     usage: /monk
+  redbag: 
+    description: send redbag
+    usage: /redbag [claim/send]
+  impost: 
+    description: faking someone say somethin'
+    usage: /impost [name] [message]
+  say: 
+    description: Say it out, but raw
+    usage: /say [message]
+  marry: 
+    description: Confess your love
+    usage: /marry [Playername]
+  getdrop: 
+    description: get loot gained from ops
+    usage: /getdrop [Playername]
+  saylocal: 
+    description: say locally
+    usage: /saylocal [Message]

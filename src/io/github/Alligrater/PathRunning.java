@@ -24,7 +24,7 @@ public class PathRunning implements Listener{
 			}
 		}
 		if(under.contains(Material.GRASS_PATH)) {
-			event.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 40, 0), true);
+			event.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 15, 0), true);
 		}
 	}
 }

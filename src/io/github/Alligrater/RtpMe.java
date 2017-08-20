@@ -12,6 +12,7 @@ public class RtpMe implements CommandExecutor{
 
 	@Override
 	public boolean onCommand(CommandSender sender, Command arg1, String arg2, String[] arg3) {
+		
 		if(arg3.length == 1 && sender.hasPermission("SilverUtil.rtp")) {
 			Player player = Bukkit.getPlayer(arg3[0]);
 			if(player != null) {

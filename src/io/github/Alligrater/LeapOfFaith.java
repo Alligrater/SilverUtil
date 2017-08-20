@@ -32,7 +32,7 @@ public class LeapOfFaith implements Listener{
 				}
 
 				if(under.contains(Material.HAY_BLOCK)) {
-					if(event.getEntity().getFallDistance() > 12 && event.getFinalDamage() * 0.1 < ((Player)event.getEntity()).getHealth()) {
+					if(event.getEntity().getFallDistance() >= 24 && event.getFinalDamage() * 0.1 < ((Player)event.getEntity()).getHealth()) {
 						Bukkit.broadcastMessage(ChatColor.YELLOW + event.getEntity().getName() + "从" + Math.round(event.getEntity().getFallDistance()) +"格的高空中一跃而下，落到了草垛里活了下来！");
 					}
 					event.setDamage(event.getFinalDamage() * 0.1);
@@ -57,6 +57,9 @@ public class LeapOfFaith implements Listener{
 				else {
 					event.getDamager().setFallDistance((float) (event.getDamager().getFallDistance()*0.5));
 				}
+			}
+			else {
+				event.getDamager().setFallDistance((float) (0));
 			}
 		}
 		

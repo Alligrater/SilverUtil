@@ -11,6 +11,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
+import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
@@ -29,6 +30,7 @@ public class DeathDrop implements Listener{
 				List<String> lores = new ArrayList<String>();
 				lores.add("Make Farming Great Again");
 				dmeta.setLore(lores);
+				dmeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
 				deathdrop.setItemMeta(dmeta);
 				deathdrop.addUnsafeEnchantment(Enchantment.LOOT_BONUS_BLOCKS, 10);
 				world.dropItem(loca, deathdrop);
@@ -37,8 +39,22 @@ public class DeathDrop implements Listener{
 				ItemStack deathdrop = new ItemStack(Material.BREAD);
 				ItemMeta dmeta = deathdrop.getItemMeta();
 				dmeta.setDisplayName("§6法棍");
+				dmeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
 				deathdrop.setItemMeta(dmeta);
 				deathdrop.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 10);
+				world.dropItem(loca, deathdrop);
+			}
+			else if(player.getName().equals("DeadlyMelody")) {
+				ItemStack deathdrop = new ItemStack(Material.BOOK);
+				ItemMeta dmeta = deathdrop.getItemMeta();
+				dmeta.setDisplayName("§6《他改变了中国》");
+				dmeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+				List<String> lores = new ArrayList<String>();
+				lores.add("苟...？");
+				dmeta.setLore(lores);
+				deathdrop.setItemMeta(dmeta);
+				deathdrop.addUnsafeEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 10);
+				deathdrop.setAmount(8);
 				world.dropItem(loca, deathdrop);
 			}
 		}
