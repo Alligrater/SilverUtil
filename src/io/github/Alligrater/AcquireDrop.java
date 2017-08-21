@@ -100,6 +100,21 @@ public class AcquireDrop implements CommandExecutor{
 					player.getWorld().dropItem(player.getLocation(), items);
 				}
 				
+				else if(arg3[0].equals("Efline")) {
+					ItemStack deathdrop = new ItemStack(Material.RECORD_6);
+					ItemMeta dmeta = deathdrop.getItemMeta();
+					dmeta.setDisplayName("§9盾化戒指");
+					dmeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+					List<String> lores = new ArrayList<String>();
+					lores.add("§7SHIELDING");
+					lores.add("§7装备在副手时:");
+					lores.add("§9 受伤时破碎并激活保护");
+					lores.add("§9 保护持续17秒");
+					dmeta.setLore(lores);
+					deathdrop.setItemMeta(dmeta);
+					player.getWorld().dropItem(player.getLocation(), deathdrop);
+				}
+				
 				else {
 					
 				}

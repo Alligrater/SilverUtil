@@ -60,13 +60,15 @@ public class MentionListener implements Listener{
 			}
 			
 			Player player = event.getPlayer();
-			event.setFormat(JoinColor.updateDname(event.getPlayer()) + ":¡ìr " + finalmsg);
+			JoinColor.updateDname(event.getPlayer());
+			event.setFormat("%s:¡ìr %s");
 			
 		}
 		
 		else {
 			Player player = event.getPlayer();
-			event.setFormat(JoinColor.updateDname(event.getPlayer()) + ":¡ìr " + event.getMessage());
+			JoinColor.updateDname(event.getPlayer());
+			event.setFormat("%s:¡ìr %s");
 		}
 	}
 	

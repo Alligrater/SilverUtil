@@ -148,4 +148,28 @@ public class JoinColor implements Listener{
 		return outstring;
 	}
 	
+	public static String getPrefix(Player player) {
+		String title = "";
+		if(customtag.containsKey(player.getName())) {
+			title = customtag.get(player.getName());
+		}
+		else if (player.isOp()){
+			title = "¡ìc[O]";
+
+		}
+		else if(DisallowMining.violated.contains(player.getUniqueId())){
+			title = "¡ìc[Vio]";
+		}
+		else if(player.hasPermission("silverutil.group.donor")) {
+			title = "¡ìb[D]";
+		}
+		else if(player.isBanned()) {
+			title = "¡ì8[B]";
+		}
+		else {
+			title = "¡ì2[P]";
+		}
+		return title;
+	}
+	
 	}

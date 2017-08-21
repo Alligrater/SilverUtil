@@ -42,61 +42,67 @@ public class UseKela implements Listener {
 	
 	@EventHandler
 	public void onKelaEat(PlayerItemConsumeEvent event) {
-		ItemStack item = event.getPlayer().getInventory().getItemInMainHand();
-		item.getItemMeta();
-		Player player = event.getPlayer();
-		if(item.containsEnchantment(Enchantment.LOOT_BONUS_BLOCKS) && item.getEnchantmentLevel(Enchantment.LOOT_BONUS_BLOCKS) == 10 && item.getType() == Material.GOLDEN_CARROT) {
-			player.setFoodLevel(20);
-			
-			int type = (int) Math.ceil(Math.random()*4);
-			switch(type) {
-			case 0:
-				player.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 400, 2), true);
-				player.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 400, 2), true);
-				player.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 400, 1), true);
-				player.addPotionEffect(new PotionEffect(PotionEffectType.SATURATION, 400, 1), true);
-				player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 400, 2), true);
-				player.addPotionEffect(new PotionEffect(PotionEffectType.JUMP, 400, 1), true);
-				Bukkit.broadcastMessage(ChatColor.GOLD + player.getName() + "§6吸了一口上好的金坷垃,§e所有属性全部提升！");
-			case 1:
-				player.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 200, 2), true);
-				player.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 200, 2), true);
-				Bukkit.broadcastMessage(ChatColor.GOLD + player.getName() + "§6吸了一口上好的金坷垃,§c攻击&防御大幅提升！");
-				break;
-			case 2:
-				player.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 150, 1), true);
-				player.addPotionEffect(new PotionEffect(PotionEffectType.SATURATION, 150, 1), true);
-				Bukkit.broadcastMessage(ChatColor.GOLD + player.getName() + "§6吸了一口上好的金坷垃,§a生命恢复&饱食度大幅提升！");
-				break;
-			case 3:
-				player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 200, 2), true);
-				player.addPotionEffect(new PotionEffect(PotionEffectType.JUMP, 200, 1), true);
-				Bukkit.broadcastMessage(ChatColor.GOLD + player.getName() + "§6吸了一口上好的金坷垃,§b跳跃&移速大幅提升！");
-				break;
-			case 4:
-				for(Player nearby : Bukkit.getOnlinePlayers()) {
-					if(nearby.getWorld().equals(player.getWorld())) {
-						if (nearby.getLocation().distance(player.getLocation()) < 15) {
-							nearby.setHealth(20);
-							nearby.setFoodLevel(20);
+		if(event.getPlayer().getInventory().getItemInMainHand() != null) {
+			ItemStack item = event.getPlayer().getInventory().getItemInMainHand();
+			item.getItemMeta();
+			Player player = event.getPlayer();
+			if(item.containsEnchantment(Enchantment.LOOT_BONUS_BLOCKS) && item.getEnchantmentLevel(Enchantment.LOOT_BONUS_BLOCKS) == 10 && item.getType() == Material.GOLDEN_CARROT) {
+				player.setFoodLevel(20);
+				
+				int type = (int) Math.ceil(Math.random()*4);
+				switch(type) {
+				case 0:
+					player.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 400, 2), true);
+					player.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 400, 2), true);
+					player.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 400, 1), true);
+					player.addPotionEffect(new PotionEffect(PotionEffectType.SATURATION, 400, 1), true);
+					player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 400, 2), true);
+					player.addPotionEffect(new PotionEffect(PotionEffectType.JUMP, 400, 1), true);
+					Bukkit.broadcastMessage(ChatColor.GOLD + player.getName() + "§6吸了一口上好的金坷垃,§e所有属性全部提升！");
+				case 1:
+					player.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 200, 2), true);
+					player.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 200, 2), true);
+					Bukkit.broadcastMessage(ChatColor.GOLD + player.getName() + "§6吸了一口上好的金坷垃,§c攻击&防御大幅提升！");
+					break;
+				case 2:
+					player.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 150, 1), true);
+					player.addPotionEffect(new PotionEffect(PotionEffectType.SATURATION, 150, 1), true);
+					Bukkit.broadcastMessage(ChatColor.GOLD + player.getName() + "§6吸了一口上好的金坷垃,§a生命恢复&饱食度大幅提升！");
+					break;
+				case 3:
+					player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 200, 2), true);
+					player.addPotionEffect(new PotionEffect(PotionEffectType.JUMP, 200, 1), true);
+					Bukkit.broadcastMessage(ChatColor.GOLD + player.getName() + "§6吸了一口上好的金坷垃,§b跳跃&移速大幅提升！");
+					break;
+				case 4:
+					for(Player nearby : Bukkit.getOnlinePlayers()) {
+						if(nearby.getWorld().equals(player.getWorld())) {
+							if (nearby.getLocation().distance(player.getLocation()) < 15) {
+								nearby.setHealth(20);
+								nearby.setFoodLevel(20);
+							}
 						}
 					}
+					Bukkit.broadcastMessage(ChatColor.GOLD + player.getName() + "§6吸了一口上好的金坷垃,§e周围全体回血！");
+					break;
 				}
-				Bukkit.broadcastMessage(ChatColor.GOLD + player.getName() + "§6吸了一口上好的金坷垃,§e周围全体回血！");
-				break;
-			}
 
+			}
+			
+			else if(item.containsEnchantment(Enchantment.DAMAGE_ALL) && item.getEnchantmentLevel(Enchantment.DAMAGE_ALL) == 10 && item.getType() == Material.BREAD) {
+				player.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 600, 0), true);
+				Bukkit.broadcastMessage(ChatColor.GOLD + player.getName() + "§6咬了一口法棍,§c力量短时间内提升了！");
+			}
+			else if(item.hasItemMeta()){
+				if(item.getItemMeta().hasDisplayName()) {
+					if(item.getItemMeta().getDisplayName().contains("狗粮")) {
+						Bukkit.broadcastMessage(ChatColor.RED + player.getName() + " §6孤独地吃了一口 " + item.getItemMeta().getDisplayName());
+					}
+				}
+
+			}
 		}
 		
-		else if(item.containsEnchantment(Enchantment.DAMAGE_ALL) && item.getEnchantmentLevel(Enchantment.DAMAGE_ALL) == 10 && item.getType() == Material.BREAD) {
-			player.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 600, 0), true);
-			Bukkit.broadcastMessage(ChatColor.GOLD + player.getName() + "§6咬了一口法棍,§c力量短时间内提升了！");
-		}
-		else if(item.getItemMeta().hasDisplayName()){
-			if(item.getItemMeta().getDisplayName().contains("狗粮")) {
-				Bukkit.broadcastMessage(ChatColor.RED + player.getName() + " §6孤独地吃了一口 " + item.getItemMeta().getDisplayName());
-			}
-		}
 	} 
 	
 	@EventHandler
