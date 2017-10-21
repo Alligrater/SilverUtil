@@ -52,7 +52,6 @@ public class SilverUtil extends JavaPlugin{
 		getServer().getPluginManager().registerEvents(new AttackBlood(), this);
 		getServer().getPluginManager().registerEvents(new LeapOfFaith(), this);
 		getServer().getPluginManager().registerEvents(new DeathDrop(), this);
-		getServer().getPluginManager().registerEvents(new DisallowMining(), this);
 		getServer().getPluginManager().registerEvents(new OPKeepInventory(), this);
 		getServer().getPluginManager().registerEvents(new IgnoreWhitelist(), this);
 		getServer().getPluginManager().registerEvents(new UseKela(), this);

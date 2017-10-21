@@ -7,6 +7,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerChatEvent;
@@ -14,13 +15,13 @@ import org.bukkit.event.player.PlayerChatEvent;
 public class MentionListener implements Listener{
 	
 	@SuppressWarnings("deprecation")
-	@EventHandler
+	@EventHandler(priority = EventPriority.HIGHEST)
 	public void onChatMention(PlayerChatEvent event) {
 		if(!event.getPlayer().getDisplayName().equals(JoinColor.updateDname(event.getPlayer()))) {
 			event.getPlayer().setDisplayName(JoinColor.updateDname(event.getPlayer()));
 		}
 		
-		if(event.getMessage().contains("@")) {
+		if(event.getMessage() != null && event.getMessage().contains("@") && !event.isCancelled()) {
 			List<String> msgs = parse(event.getMessage());
 			
 			
@@ -75,6 +76,10 @@ public class MentionListener implements Listener{
 	public List<String> parse(String str) {
 		List<String> list = new ArrayList<String>();
 		String temp = "";
+		if(str == null) {
+			return null;
+		}
+		
 		for(int i = 0; i<str.length() - 1; i++) {
 			if((str.substring(i, i+1).equals(" ") || str.substring(i, i+1).equals("@")) && i != str.length() - 2) {
 				list.add(temp);

@@ -29,8 +29,8 @@ public class DieofVow implements Listener{
 			VowofPoverty.monk.remove(event.getEntity().getUniqueId());
 			deadmonk.remove(event.getEntity().getUniqueId());
 			Bukkit.broadcastMessage(ChatColor.GOLD + player.getName() + "不再是Monk了！");
-			if (JoinColor.customtag.get(player.getUniqueId()) != null && JoinColor.customtag.get(player.getUniqueId()).equals("§6[Monk]")) {
-				JoinColor.customtag.remove(player.getUniqueId());
+			if (JoinColor.customtag.get(player.getName()) != null && JoinColor.customtag.get(player.getName()).equals("§6[Monk]")) {
+				JoinColor.customtag.remove(player.getName());
 			}
 			player.setDisplayName(JoinColor.updateDname(player));
 		}

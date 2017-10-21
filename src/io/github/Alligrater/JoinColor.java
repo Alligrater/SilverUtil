@@ -30,6 +30,7 @@ public class JoinColor implements Listener{
 		Player player = event.getPlayer();
 		Date last = new Date(player.getLastPlayed());
 		
+		/*
 		if(last.getDate() != current.getDate()) {
 			
 			ItemStack items = new ItemStack(Material.FIREWORK);
@@ -52,6 +53,7 @@ public class JoinColor implements Listener{
 			player.getInventory().addItem(items);
 			player.sendMessage("§e你已领取一枚奖励火箭！");
 		}
+		
 		
 		if(last.getMonth() != current.getMonth()) {
 			ItemStack items = new ItemStack(Material.FIREWORK);
@@ -77,6 +79,7 @@ public class JoinColor implements Listener{
 		if(DisallowMining.violated.contains(event.getPlayer().getUniqueId())) {
 			DisallowMining.violated.remove(event.getPlayer().getUniqueId());
 		}
+		*/
 		
 		boolean isonlist = false;
 		for(RedBagPlayer rbp: RedBagSend.cplayer) {
@@ -108,9 +111,6 @@ public class JoinColor implements Listener{
 			player.sendMessage("§e当前有未领完的红包，输入§c/redbag claim§e来领取吧！");
 		}
 		
-		World world = player.getWorld();
-			player.teleport(world.getSpawnLocation());
-			player.sendMessage("§c为避免无法登陆，你已暂时被传送。");
 	}
 	
 	@EventHandler
